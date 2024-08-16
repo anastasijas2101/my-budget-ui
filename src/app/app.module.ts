@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AccountComponent } from './account/account.component';
-import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
