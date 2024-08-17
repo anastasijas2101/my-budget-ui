@@ -1,0 +1,9 @@
+.logOutButton {
+    position: absolute;
+    bottom: 70px;
+    right: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 100px;
+    font-weight: bold;
+}

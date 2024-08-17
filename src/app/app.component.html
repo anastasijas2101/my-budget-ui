@@ -1,4 +1,4 @@
 <app-nav-bar *ngIf="isUserLoggedIn"></app-nav-bar>
-<button (click)="logOut()" *ngIf="isUserLoggedIn">LogOut</button>
 <router-outlet />
+<button class="logOutButton" (click)="logOut()" *ngIf="isUserLoggedIn">LogOut</button>
 <app-footer *ngIf="isUserLoggedIn"></app-footer>
