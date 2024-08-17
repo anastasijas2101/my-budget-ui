@@ -1,28 +1,24 @@
-<div class="full-form" #f="ngForm" (ngSubmit)="signIn(f.value)">
-    <form>
-        <h2>Please sign in</h2>
-        <div *ngIf="ivalidLogin" class="alert alert-danger">
-            Invalid username and/or password.
+<div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div>
+        <div class="form-group">
+          <label for="email">Email</label><br>
+          <input required id="email" ngModel name="email" #email="ngModel" type="text" class="form-control">
+          <div class="alert alert-danger" *ngIf="email?.touched && !email?.valid">Email is required!</div>
         </div>
-        <div ngModelGroup="loginForm" #loginForm="ngModelGroup">
-            <div class="form-group">
-                <label for="email">Email</label><br>
-                <input required id="email" ngModel name="email" #email="ngModel" type="text" class="form-control">
-                <div class="alert alert-danger" *ngIf="email?.touched && !email?.valid">Email is required!</div>
+        <div class="form-group">
+          <label for="password">Password</label><br>
+          <input required minlength="5" id="password" ngModel name="password" #password="ngModel" type="password" class="form-control">
+          <div class="alert alert-danger" *ngIf="password?.touched && !password?.valid">
+            <div *ngIf="password?.errors?.['required']">
+              Password is required
             </div>
-            <div class="form-group">
-                <label for="password">Password</label><br>
-                <input required minlength="5" id="password" ngModel name="password" #password="ngModel" type="password" class="form-control">
-                <div class="alert alert-danger" *ngIf="password?.touched && !password?.valid">
-                    <div *ngIf="password?.errors?.['required']">
-                        Password is required
-                    </div>
-                    <div *ngIf="password?.errors?.['minlength']">
-                        Password should be minimum {{ password?.errors?.['minlength']?.requiredLength }} characters long.
-                    </div>
-                </div>
+            <div *ngIf="password?.errors?.['minlength']">
+              Password should be minimum {{ password?.errors?.['minlength']?.requiredLength }} characters long.
             </div>
-            <button class="btn btn-primary"><a routerLink="/account">LogIn</a></button>
+          </div>
         </div>
+        <button class="btn btn-primary" type="submit">LogIn</button>
+      </div>
     </form>
-</div>
+  </div>

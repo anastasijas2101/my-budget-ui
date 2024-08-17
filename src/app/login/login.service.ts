@@ -7,10 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  private apiUrl = 'http://localhost:8080/users/login'
+  private apiUrl: string = 'http://localhost:8080/users/login'
+
   constructor(private http: HttpClient) { }
 
-  getData(credentials: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, credentials);
+  logIn(email: string, password: string): Observable<any> {
+    return this.http.post(this.apiUrl, { email, password });
   }
 }

@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { NgForm } from "@angular/forms";
+import { LoginService } from "./login.service";
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
-  standalone: true,
-  imports: [FormsModule]
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
@@ -17,12 +15,16 @@ export class LoginComponent {
 
   constructor(private loginService: LoginService, private router: Router){}
 
-  signIn(credentials: any) {
-    this.loginService.getData(credentials)
-      .subscribe(result => {
-        if (result)
+  onSubmit(form: NgForm) {
+    this.loginService.logIn(form.value.email, form.value.password)
+      .subscribe(user => {
+        console.log(user);
+        
+        if (user) {
           this.router.navigate(['/account'])
-        else 
+          localStorage.setItem('id', user.id)
+        }
+        else
           this.invalidLogin = true;
       })
   }

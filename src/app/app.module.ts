@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AccountComponent } from './account/account.component';
-import { LoginService } from './login.service';
 import { provideHttpClient } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,7 +16,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     AccountComponent,
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -27,13 +27,9 @@ import { FooterComponent } from './footer/footer.component';
       {path: "", redirectTo:'login', pathMatch: 'full'},
       {path: "login", component: LoginComponent},
       {path: "account", component: AccountComponent}
-    ]),
-    LoginComponent,
+    ])
   ],
-  providers: [
-    LoginService,
-    provideHttpClient()
-  ],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
