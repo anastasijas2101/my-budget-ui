@@ -4,6 +4,32 @@
             <h4>{{account.name}}</h4>
             <p>{{account.balance}} {{account.currency}}</p>
         </div>
-        <button>New account</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#newAccount">New account </button>
+
+        <div class="modal fade" id="newAccount" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">New Account</h1>
+                    </div>
+                    <div class="modal-body">
+                        <label for="name">Name:</label>
+                        <input name="name" type="text">
+                        <label for="balance">Balance</label>
+                        <input class="balance" name="balance" type="text">
+                        <label for="currency">Currency:</label>
+                        <select class="currency" name="currency">
+                            <option>EUR</option>
+                            <option>USA</option>
+                            <option>BAM</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="create-account">Create Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

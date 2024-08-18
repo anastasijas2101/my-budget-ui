@@ -1,4 +1,37 @@
 <footer class="footer">
-    <button>New Transaction</button>
+    <button class="new-transaction" type="button" data-bs-toggle="modal" data-bs-target="#newTransaction">New Transaction</button>
+    <div class="modal fade" id="newTransaction" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New Transaction</h1>
+                </div>
+                <div class="transaction-body">
+                    <label for="name">Description:</label>
+                    <input name="name" type="text">
+                    <label for="currency">Type:</label>
+                    <select class="currency" name="currency">
+                        <option>Expense</option>
+                        <option>USA</option>
+                        <option>BAM</option>
+                    </select>
+                    <div class="account-amount">
+                        <label for="currency">Acount:</label>
+                        <select class="currency" name="currency">
+                            <option>Account 1</option>
+                            <option>Account 2</option>
+                            <option>Account 3</option>
+                        </select>
+                        <label for="balance">Amount:</label>
+                        <input class="balance" name="balance" type="text">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close-transaction" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="create-transaction">Create Transaction</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <p>Available: 289.19 EUR</p>
 </footer>

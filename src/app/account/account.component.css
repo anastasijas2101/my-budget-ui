@@ -38,3 +38,27 @@
 .account-item p {
     margin: 0;
 }
+
+.currency {
+    max-width: 100px;
+    width: 100%;
+}
+
+.balance {
+    max-width: 150px;
+    width: 100%;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-account {
+    width: 120px;
+    font-size: 14px;
+}
+
+.btn-secondary {
+    font-size: 14px;
+}

@@ -10,7 +10,6 @@ import { LoginService } from "./login.service";
 })
 export class LoginComponent {
 
-  endpointData:any = null;
   invalidLogin: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router){}
@@ -18,11 +17,9 @@ export class LoginComponent {
   onSubmit(form: NgForm) {
     this.loginService.logIn(form.value.email, form.value.password)
       .subscribe(user => {
-        console.log(user);
-        
         if (user) {
-          this.router.navigate(['/account'])
           localStorage.setItem('id', user.id)
+          this.router.navigate(['/account'])
         }
         else
           this.invalidLogin = true;
