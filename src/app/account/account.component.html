@@ -1,3 +1,9 @@
 <div class="full-accounts">
-    <h1>Accounts</h1>
+    <div class="accounts-list">
+        <div class="account-item" *ngFor="let account of accounts">
+            <h4>{{account.name}}</h4>
+            <p>{{account.balance}} {{account.currency}}</p>
+        </div>
+        <button>New account</button>
+    </div>
 </div>
