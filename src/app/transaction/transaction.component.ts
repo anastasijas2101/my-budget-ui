@@ -43,10 +43,8 @@ export class TransactionComponent implements OnInit {
     }
   }
 
-  onFilterChange(): void { 
-    console.log(this.selectedFilter);
-     
-    if (this.selectedFilter === null) {
+  onFilterChange(): void {
+    if (this.selectedFilter?.toString() === "null") {
       this.transactionService.getAllTransactions().subscribe(transactions => {
         this.transactions = transactions;
       })
