@@ -1,25 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './account.service';
 import { Account } from './account.model';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'account',
+  selector: 'accounts',
   templateUrl: './account.component.html',
   styleUrl: './account.component.css'
 })
 export class AccountComponent implements OnInit {
   
   accounts: Account[] = [];
-  userId: string | null = localStorage.getItem('id');
 
-  constructor(private accountService: AccountService, private activatedRoute: ActivatedRoute){}
+  constructor(private accountService: AccountService){}
 
   ngOnInit(): void {
-    if (this.userId) {
-      this.accountService.getAccounts(this.userId).subscribe(data => {
+      this.accountService.getAccounts().subscribe(data => {
       this.accounts = data;
     }) 
-    }
   }
 }

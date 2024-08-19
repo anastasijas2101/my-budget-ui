@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { provideHttpClient } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -17,16 +17,16 @@ import { FooterComponent } from './footer/footer.component';
     AccountComponent,
     NavBarComponent,
     FooterComponent,
-    LoginComponent
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot([
-      {path: "", redirectTo:'login', pathMatch: 'full'},
-      {path: "login", component: LoginComponent},
-      {path: "account", component: AccountComponent}
+      {path: "", redirectTo:'accounts', pathMatch: 'full'},
+      {path: "accounts", component: AccountComponent},
+      {path: "transactions" , component: TransactionComponent}
     ])
   ],
   providers: [provideHttpClient()],

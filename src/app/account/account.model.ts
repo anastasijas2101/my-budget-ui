@@ -3,5 +3,4 @@ export interface Account {
     name: string;
     balance: number;
     currency: string;
-    userId: number;
 }

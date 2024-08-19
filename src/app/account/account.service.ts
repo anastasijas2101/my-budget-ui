@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Account } from './account.model';
@@ -12,10 +12,7 @@ export class AccountService {
 
   constructor(private http: HttpClient) {}
 
-  getAccounts(userId: string) : Observable<Account[]> {
-    const params = new HttpParams().set('userId', userId);
-
-    return this.http.get<Account[]>(this.apiUrl, {params});
+  getAccounts() : Observable<Account[]> {
+    return this.http.get<Account[]>(this.apiUrl);
   }
-
 }
