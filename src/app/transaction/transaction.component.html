@@ -1,8 +1,8 @@
 <div class="full-transactions">
     <div class="filter-transactions">
         <label for="filter">Filter by Account: </label>
-        <select id="filter" [(ngModel)]="selectedFilter" (change)="onFilterChange($event.target.value)">
-            <option *ngFor="let option of filterOptions" [value]="option">
+        <select id="filter" [(ngModel)]="selectedFilter" (change)="onFilterChange()">
+            <option *ngFor="let option of filterOptions" [value]="option.id">
               {{ option.name }}
             </option>
           </select>

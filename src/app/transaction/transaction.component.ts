@@ -12,7 +12,7 @@ import { AccountService } from '../account/account.service';
 export class TransactionComponent implements OnInit {
 
   accountId?: number;
-  selectedFilter?: FilterOptions;
+  selectedFilter: number | null = null;
   transactions: Transaction[] = [];
 
   filterOptions: FilterOptions[] = [{name: 'All', id: null }];
@@ -26,7 +26,7 @@ export class TransactionComponent implements OnInit {
   })
     this.route.queryParams.subscribe(params => {
       this.accountId = params['accountId'] ? +params['accountId'] : undefined;
-      this.selectedFilter = this.filterOptions.find(option => option.id === +params['filter']);
+      // this.selectedFilter = this.filterOptions.find(option => option.id === +params['filter']);
       this.loadTransactions();
     })
   }
@@ -43,12 +43,17 @@ export class TransactionComponent implements OnInit {
     }
   }
 
-  onFilterChange(selected: FilterOptions): void { 
-
-    console.log(selected);
-    
-    this.transactionService.getTransactionsByAccount(this.selectedFilter!.id!).subscribe(transactions => {
-      this.transactions = transactions;
-    })
+  onFilterChange(): void { 
+    console.log(this.selectedFilter);
+     
+    if (this.selectedFilter === null) {
+      this.transactionService.getAllTransactions().subscribe(transactions => {
+        this.transactions = transactions;
+      })
+    } else {
+      this.transactionService.getTransactionsByAccount(this.selectedFilter!).subscribe(transactions => {
+        this.transactions = transactions;
+      })
+    }
   }
 }
