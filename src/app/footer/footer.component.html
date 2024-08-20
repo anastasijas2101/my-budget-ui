@@ -6,30 +6,37 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">New Transaction</h1>
                 </div>
-                <div class="transaction-body">
-                    <label for="name">Description:</label>
-                    <input name="name" type="text">
-                    <label for="currency">Type:</label>
-                    <select class="currency" name="currency">
-                        <option>Expense</option>
-                        <option>USA</option>
-                        <option>BAM</option>
-                    </select>
-                    <div class="account-amount">
-                        <label for="account">Account:</label>
-                        <select class="account" name="account">
-                            <option>Account 1</option>
-                            <option>Account 2</option>
-                            <option>Account 3</option>
-                        </select>
-                        <label for="balance">Amount:</label>
-                        <input class="balance" name="balance" type="text">
+                <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                    <div class="transaction-body">
+                        <label for="description">Description:</label>
+                        <input id="description" ngModel name="description" #description="ngModel" type="text">
+                        <div class="transaction-type">
+                            <label>Type:</label>
+                            <select>
+                                <option>Expense</option>
+                                <option>Deposit</option>
+                            </select>
+                            <label for="account">Account:</label>
+                            <select id="account" [(ngModel)]="selectedAccount" class="account" name="account" #account="ngModel">
+                                <option *ngFor="let option of accountOptions" [value]="option.id"> {{option.name}} </option>
+                            </select>
+                        </div>
+                        <div class="amount-currency">
+                            <label for="amount">Amount:</label>
+                            <input id="amount" ngModel class="amount" name="amount" #amount="ngModel" type="text">
+                            <label for="currency">Currency:</label>
+                            <select id="currency" ngModel name="currency" #currency="ngModel" class="currency">
+                                <option>EUR</option>
+                                <option>USD</option>
+                                <option>BAM</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="close-transaction" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="create-transaction">Create Transaction</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="close-transaction" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="create-transaction">Create Transaction</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

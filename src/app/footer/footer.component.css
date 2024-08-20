@@ -31,7 +31,18 @@
     padding: 10px;
 }
 
-.account-amount {
+.transaction-type {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+}
+
+.type {
+    width: 150px;
+}
+
+.amount-currency {
     display: flex;
     flex-direction: row;
     gap: 10px;

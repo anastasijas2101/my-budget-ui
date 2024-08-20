@@ -12,22 +12,24 @@
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">New Account</h1>
                     </div>
-                    <div class="modal-body">
-                        <label for="name">Name:</label>
-                        <input name="name" type="text">
-                        <label for="balance">Balance</label>
-                        <input class="balance" name="balance" type="text">
-                        <label for="currency">Currency:</label>
-                        <select class="currency" name="currency">
-                            <option>EUR</option>
-                            <option>USA</option>
-                            <option>BAM</option>
-                        </select>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="create-account">Create Account</button>
-                    </div>
+                    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                        <div class="modal-body">
+                            <label for="accountName">Name:</label>
+                            <input id="accountName" ngModel name="accountName" #accountName="ngModel" type="text">
+                            <label for="balance">Balance</label>
+                            <input id="balance" ngModel class="balance" name="balance" #balance="ngModel" type="text">
+                            <label for="currency">Currency:</label>
+                            <select id="currency" ngModel class="currency" name="currency" #currency="ngModel">
+                                <option>EUR</option>
+                                <option>USD</option>
+                                <option>BAM</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="create-account">Create Account</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './account.service';
 import { Account } from './account.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'accounts',
@@ -17,5 +18,10 @@ export class AccountComponent implements OnInit {
       this.accountService.getAccounts().subscribe(data => {
       this.accounts = data;
     }) 
+  }
+
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+    this.accountService.setAccount(form.value.accountName, form.value.balance, form.value.currency)
   }
 }

@@ -15,4 +15,8 @@ export class AccountService {
   getAccounts() : Observable<Account[]> {
     return this.http.get<Account[]>(this.apiUrl);
   }
+
+  setAccount(accountName: string, balance: number, currency: string) : Observable<any> {
+    return this.http.post(this.apiUrl, {accountName, balance, currency})
+  }
 }

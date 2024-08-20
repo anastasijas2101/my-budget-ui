@@ -10,6 +10,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TransactionComponent } from './transaction/transaction.component';
     AccountComponent,
     NavBarComponent,
     FooterComponent,
-    TransactionComponent
+    TransactionComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { TransactionComponent } from './transaction/transaction.component';
     RouterModule.forRoot([
       {path: "", redirectTo:'accounts', pathMatch: 'full'},
       {path: "accounts", component: AccountComponent},
-      {path: "transactions" , component: TransactionComponent}
+      {path: "transactions" , component: TransactionComponent},
+      {path: "settings", component: SettingsComponent}
     ])
   ],
   providers: [provideHttpClient()],
