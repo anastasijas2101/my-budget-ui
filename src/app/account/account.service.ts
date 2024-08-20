@@ -16,7 +16,10 @@ export class AccountService {
     return this.http.get<Account[]>(this.apiUrl);
   }
 
-  setAccount(accountName: string, balance: number, currency: string) : Observable<any> {
-    return this.http.post(this.apiUrl, {accountName, balance, currency})
+  setAccount(name: string, balance: number, currency: string) : Observable<any> {
+    const payload = name;
+    console.log("The payload is:" + payload);
+    
+    return this.http.post(this.apiUrl, {name, balance, currency})
   }
 }

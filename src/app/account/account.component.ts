@@ -22,6 +22,7 @@ export class AccountComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     console.log(form.value);
-    this.accountService.setAccount(form.value.accountName, form.value.balance, form.value.currency)
+    this.accountService.setAccount(form.value.name, form.value.balance, form.value.currency).subscribe()
+    window.location.reload()
   }
 }

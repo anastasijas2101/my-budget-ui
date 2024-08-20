@@ -24,6 +24,7 @@ export class FooterComponent implements OnInit {
 
   onSubmit(form: NgForm) {
       console.log(form.value);  
-      this.footerService.setTransaction(form.value.description, form.value.amount, form.value.currency, this.selectedAccount!);
+      this.footerService.setTransaction(form.value.description, form.value.amount, form.value.currency, this.selectedAccount!).subscribe();
+      window.location.reload();
   }
 }
