@@ -1,0 +1,32 @@
+.full-settings {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 2px solid black;
+    padding: 10px;
+}
+
+.full-settings p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.full-settings div {
+    max-width: 500px;
+    width: 100%;
+    border-bottom: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.delete-data button {
+    max-width: 80px;
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid black;
+    font-weight: bold;
+}
