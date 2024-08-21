@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AccountService } from '../account/account.service';
+import { SettingsService } from './settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,11 +8,11 @@ import { AccountService } from '../account/account.service';
 })
 export class SettingsComponent {
   
-  constructor(private accountService: AccountService) {}
+  constructor(private settingsService: SettingsService) {}
 
   deleteAll(): void {
     if (confirm('Are you sure you want to delete all data?')) {
-      this.accountService.deleteAllData().subscribe(() => {
+      this.settingsService.deleteAllData().subscribe(() => {
         alert('All data delete successfully');
         window.location.reload();
       })

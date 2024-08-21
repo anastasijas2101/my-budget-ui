@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FooterService } from './footer.service';
+import { SettingsService } from './settings.service';
 
-describe('FooterService', () => {
-  let service: FooterService;
+describe('SettingsService', () => {
+  let service: SettingsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FooterService);
+    service = TestBed.inject(SettingsService);
   });
 
   it('should be created', () => {

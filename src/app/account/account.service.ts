@@ -24,9 +24,4 @@ export class AccountService {
     const params = new HttpParams().set('balance', '');
     return this.http.get<number>(this.apiUrl, {params})
   }
-
-  deleteAllData(): Observable<void> {
-    const params = new HttpParams().set('delete', '');
-    return this.http.delete<void>(this.apiUrl, {params})
-  }
 }

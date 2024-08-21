@@ -21,4 +21,8 @@ export class TransactionService {
 
     return this.http.get<Transaction[]>(this.apiUrl, {params})
   }
+
+  addTransaction(description: string, amount: number, currency: string, type: string, accountId: number): Observable<any> {
+    return this.http.post(this.apiUrl, {description, amount, currency, type, accountId})
+  }
 }
