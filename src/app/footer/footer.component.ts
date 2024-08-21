@@ -13,12 +13,16 @@ export class FooterComponent implements OnInit {
   
   selectedAccount: number | null = null;
   accountOptions: AccountOptions[] = [];
+  totalBalance?: number;
 
   constructor(private accountService: AccountService, private footerService: FooterService) {}
 
   ngOnInit(): void {
     this.accountService.getAccounts().subscribe(accounts => {
       this.accountOptions = accounts.map(account => ({name: account.name, id: account.id}))
+    })
+    this.accountService.getTotalBalance().subscribe((balance: number) => {
+      this.totalBalance = balance
     })
   }
 

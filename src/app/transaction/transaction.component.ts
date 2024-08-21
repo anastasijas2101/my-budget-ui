@@ -26,7 +26,6 @@ export class TransactionComponent implements OnInit {
   })
     this.route.queryParams.subscribe(params => {
       this.accountId = params['accountId'] ? +params['accountId'] : undefined;
-      // this.selectedFilter = this.filterOptions.find(option => option.id === +params['filter']);
       this.loadTransactions();
     })
   }

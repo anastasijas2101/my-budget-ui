@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Account } from './account.model';
@@ -17,9 +17,11 @@ export class AccountService {
   }
 
   setAccount(name: string, balance: number, currency: string) : Observable<any> {
-    const payload = name;
-    console.log("The payload is:" + payload);
-    
     return this.http.post(this.apiUrl, {name, balance, currency})
+  }
+
+  getTotalBalance() : Observable<number> {
+    const params = new HttpParams().set('balance', '');
+    return this.http.get<number>(this.apiUrl, {params})
   }
 }
