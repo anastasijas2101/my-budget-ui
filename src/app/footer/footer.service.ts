@@ -11,7 +11,7 @@ export class FooterService {
 
   constructor(private http: HttpClient) { }
 
-  setTransaction(description: string, amount: number, currency: string, accountId: number): Observable<any> {
-    return this.http.post(this.apiUrl, {description, amount, currency, accountId})
+  setTransaction(description: string, amount: number, currency: string, type: string, accountId: number): Observable<any> {
+    return this.http.post(this.apiUrl, {description, amount, currency, type, accountId})
   }
 }

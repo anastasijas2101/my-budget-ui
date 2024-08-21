@@ -11,8 +11,8 @@
                         <label for="description">Description:</label>
                         <input id="description" ngModel name="description" #description="ngModel" type="text">
                         <div class="transaction-type">
-                            <label>Type:</label>
-                            <select>
+                            <label for="type">Type:</label>
+                            <select id="type" ngModel class="type" name="type" #type=ngModel>
                                 <option>Expense</option>
                                 <option>Deposit</option>
                             </select>
