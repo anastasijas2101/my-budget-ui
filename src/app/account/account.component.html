@@ -2,7 +2,10 @@
     <div class="accounts-list">
         <div class="account-item" *ngFor="let account of accounts">
             <h4>{{account.name}}</h4>
-            <p>{{account.balance}} {{account.currency}}</p>
+            <div class="account-balance">
+                <p>{{account.convertedBalance}} {{account.convertedCurrency}}</p>
+                <p class="former-balance">{{account.balance}} {{account.currency}}</p>
+            </div>
         </div>
         <button type="button" data-bs-toggle="modal" data-bs-target="#newAccount">New account </button>
 

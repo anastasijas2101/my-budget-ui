@@ -39,6 +39,16 @@
     margin: 0;
 }
 
+.account-balance {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.former-balance {
+    font-size: 14px;
+}
+
 .currency {
     max-width: 100px;
     width: 100%;

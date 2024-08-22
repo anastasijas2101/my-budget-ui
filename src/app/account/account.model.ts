@@ -3,4 +3,6 @@ export interface Account {
     name: string;
     balance: number;
     currency: string;
+    convertedBalance: number;
+    convertedCurrency: string;
 }
