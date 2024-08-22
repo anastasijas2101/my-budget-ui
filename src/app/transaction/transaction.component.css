@@ -31,3 +31,17 @@
     padding: 10px;
     border-bottom: 2px solid black;
 }
+
+.transaction-amount {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.transaction-amount p {
+    margin: 0;
+}
+
+.former-transaction {
+    font-size: 12px;
+}

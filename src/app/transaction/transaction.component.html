@@ -10,8 +10,10 @@
     <div class="transactions-list">
         <div class="transaction-item" *ngFor="let transaction of transactions">
             <h4>{{transaction.description}}</h4>
-            <p>{{transaction.accountId}}</p>
-            <p>{{transaction.amount}} {{transaction.currency}}</p>
+            <div class="transaction-amount">
+                <p>{{ transaction.convertedAmount}} {{transaction.convertedCurrency}}</p>
+                <p class="former-transaction">{{transaction.amount}} {{transaction.currency}}</p>
+            </div>
         </div>
     </div>
 </div>

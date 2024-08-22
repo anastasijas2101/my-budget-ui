@@ -1,10 +1,8 @@
 <div class="full-settings">
     <div class="currency">
         <p>Default currency</p>
-        <select>
-            <option>EUR</option>
-            <option>USD</option>
-            <option>BAM</option>
+        <select id="defaultCurrency" [(ngModel)]="selectedCurrency" class="defaultCurrency" name="defaultCurrency" #defaultCurrency="ngModel">
+            <option *ngFor="let currency of currencies" [value]="currency.code"> {{currency.code}}</option>
         </select>
     </div>
     <div class="delete-data">

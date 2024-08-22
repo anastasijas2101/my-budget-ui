@@ -12,9 +12,8 @@
                         <input id="description" ngModel name="description" #description="ngModel" type="text">
                         <div class="transaction-type">
                             <label for="type">Type:</label>
-                            <select id="type" ngModel class="type" name="type" #type=ngModel>
-                                <option>Expense</option>
-                                <option>Deposit</option>
+                            <select id="type" [(ngModel)]="selectedType" class="type" name="type" #type=ngModel>
+                                <option *ngFor="let type of transactionType | keyvalue" [value]="type.value"> {{type.value}} </option>
                             </select>
                             <label for="account">Account:</label>
                             <select id="account" [(ngModel)]="selectedAccount" class="account" name="account" #account="ngModel">
@@ -25,10 +24,8 @@
                             <label for="amount">Amount:</label>
                             <input id="amount" ngModel class="amount" name="amount" #amount="ngModel" type="text">
                             <label for="currency">Currency:</label>
-                            <select id="currency" ngModel name="currency" #currency="ngModel" class="currency">
-                                <option>EUR</option>
-                                <option>USD</option>
-                                <option>BAM</option>
+                            <select id="currency" [(ngModel)]="selectedCurrency" name="currency" #currency="ngModel" class="currency">
+                                <option *ngFor="let currency of currencies" [value]="currency.code"> {{currency.code}}</option>
                             </select>
                         </div>
                     </div>

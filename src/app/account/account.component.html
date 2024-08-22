@@ -19,10 +19,8 @@
                             <label for="balance">Balance</label>
                             <input id="balance" ngModel class="balance" name="balance" #balance="ngModel" type="text">
                             <label for="currency">Currency:</label>
-                            <select id="currency" ngModel class="currency" name="currency" #currency="ngModel">
-                                <option>EUR</option>
-                                <option>USD</option>
-                                <option>BAM</option>
+                            <select id="currency" [(ngModel)]="selectedCurrency" class="currency" name="currency" #currency="ngModel">
+                                <option *ngFor="let currency of currencies" [value]="currency.code">{{currency.code}}</option>
                             </select>
                         </div>
                         <div class="modal-footer">

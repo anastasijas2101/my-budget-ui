@@ -4,9 +4,17 @@ export interface Transaction {
     amount: number;
     currency: String;
     accountId: number;
+    type: TransactionType;
+    convertedAmount: number;
+    convertedCurrency: String;
 }
 
 export interface FilterOptions {
     name: string,
     id: number | null
+}
+
+export enum TransactionType {
+    EXPENSE = 'EXPENSE',
+    DEPOSIT = 'DEPOSIT'
 }
