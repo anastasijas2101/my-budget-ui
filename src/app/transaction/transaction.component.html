@@ -11,8 +11,8 @@
         <div class="transaction-item" *ngFor="let transaction of transactions">
             <h4>{{transaction.description}}</h4>
             <div class="transaction-amount">
-                <p>{{ transaction.convertedAmount}} {{transaction.convertedCurrency}}</p>
-                <p class="former-transaction">{{transaction.amount}} {{transaction.currency}}</p>
+                <p>{{ transaction.type === 'EXPENSE' ? '-' : '' }} {{ transaction.convertedAmount}} {{transaction.convertedCurrency}}</p>
+                <p [ngClass]="{'hidden': transaction.currency === transaction.convertedCurrency}" class="former-transaction">{{ transaction.type === 'EXPENSE' ? '-' : '' }} {{transaction.amount}} {{transaction.currency}}</p>
             </div>
         </div>
     </div>

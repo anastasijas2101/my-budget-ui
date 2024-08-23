@@ -1,7 +1,7 @@
 <div class="full-settings">
     <div class="currency">
         <p>Default currency</p>
-        <select id="defaultCurrency" [(ngModel)]="selectedCurrency" class="defaultCurrency" name="defaultCurrency" #defaultCurrency="ngModel">
+        <select class="defaultCurrency" name="defaultCurrency" (change)="currencyChange($event)" [(ngModel)]="selectedCurrency">
             <option *ngFor="let currency of currencies" [value]="currency.code"> {{currency.code}}</option>
         </select>
     </div>

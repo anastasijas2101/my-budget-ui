@@ -45,3 +45,7 @@
 .former-transaction {
     font-size: 12px;
 }
+
+.hidden {
+    display: none;
+}

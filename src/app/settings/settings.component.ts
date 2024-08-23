@@ -12,15 +12,15 @@ import { Currency } from '../currency/currency.model';
 export class SettingsComponent implements OnInit {
 
   currencies: Currency[] = [];
-  selectedCurrency: string = "EUR";
+  selectedCurrency: string = '';
   
   constructor(private settingsService: SettingsService, private currencyService: CurrencyService) {}
 
   ngOnInit(): void {
     this.currencyService.getCurrency().subscribe(currencies => {
       this.currencies = currencies;
-      console.log(currencies);
     })
+    this.selectedCurrency = 'EUR';
   }
 
   deleteAll(): void {
@@ -30,5 +30,10 @@ export class SettingsComponent implements OnInit {
         window.location.reload();
       })
     }
+  }
+
+  currencyChange(event: Event): void {
+    const currency = event.target as HTMLSelectElement;
+    this.selectedCurrency = currency.value;
   }
 }
